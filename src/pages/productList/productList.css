@@ -1,0 +1,101 @@
+.pl {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: system-ui, sans-serif;
+}
+
+.pl-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.pl-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.pl-toolbar input[type="search"] {
+  flex: 1 1 240px;
+  padding: 10px 12px;
+  font-size: 16px;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+}
+
+.pl-toggle {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pl-count {
+  color: #555;
+  font-size: 14px;
+}
+
+.pl-msg {
+  padding: 24px;
+  text-align: center;
+  color: #444;
+}
+
+.pl-error {
+  color: #b00020;
+}
+
+.pl-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.pl-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  background: #fff;
+}
+
+.pl-name {
+  font-weight: 600;
+}
+
+.pl-price {
+  margin-top: 6px;
+  color: #2a7;
+}
+
+.pl-pager {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.pl-pager button {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.pl-pager button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+@media (max-width: 480px) {
+  .pl {
+    padding: 12px;
+  }
+}

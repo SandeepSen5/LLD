@@ -1,0 +1,77 @@
+.anim-demo {
+  padding: 20px;
+  font-family: system-ui, sans-serif;
+}
+
+.anim-lane {
+  position: relative;
+  height: 90px;
+  margin: 12px 0 28px;
+  background: #eef;
+  border-radius: 6px;
+}
+
+.anim-box {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 70px;
+  height: 70px;
+  border-radius: 8px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-play-state: paused;
+}
+
+.anim-box.run {
+  animation-play-state: running;
+}
+
+/* Case 1: animating `left` triggers Layout -> Paint -> Composite */
+.anim-left {
+  background: #d33;
+  animation-name: move-left;
+}
+
+@keyframes move-left {
+  to {
+    left: calc(100% - 70px);
+  }
+}
+
+/* Case 2: animating `transform` triggers Composite only.
+   Animating `left` from 0 to 100% - 70px is equal to a translateX of the
+   same distance, written here with a container-relative unit. */
+.anim-lane {
+  container-type: inline-size;
+}
+
+.anim-transform {
+  background: #2a7;
+  animation-name: move-transform;
+}
+
+@keyframes move-transform {
+  to {
+    transform: translateX(calc(100cqw - 70px));
+  }
+}
+
+.anim-filler {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 60px);
+  gap: 4px;
+  margin-top: 20px;
+}
+
+.anim-filler div {
+  height: 20px;
+  background: #ddd;
+}
