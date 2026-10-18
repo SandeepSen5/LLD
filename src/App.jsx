@@ -5,6 +5,7 @@ import NestedComments from "./pages/nestedComments/nestedComments";
 import Test from "./pages/testFolder/test";
 import AnimationDemo from "./pages/animationDemo/animationDemo";
 import ProductList from "./pages/productList/productList";
+import StarRatingPage from "./pages/starRating/starRating";
 import Login from "./pages/Login/login";
 import PrivateRoute from "./components/PrivateRoute";
 
@@ -64,6 +65,15 @@ function App() {
           element={
             <PrivateRoute>
               <ProductList />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/star-rating"
+          element={
+            <PrivateRoute>
+              <StarRatingPage />
             </PrivateRoute>
           }
         />
