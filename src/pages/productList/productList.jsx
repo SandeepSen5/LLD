@@ -44,7 +44,7 @@ export default function ProductList() {
   const [page, setPage] = useState(1);
 
   const debouncedQuery = useDebounce(query, DEBOUNCE_MS);
-
+  
   const load = (fail) => {
     setStatus("loading");
     fetchProducts(fail)
