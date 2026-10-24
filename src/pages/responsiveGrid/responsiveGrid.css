@@ -1,0 +1,63 @@
+/* The whole trick: columns are computed from the available width, no media queries.
+   auto-fill: keep empty tracks, so items stay at their min size when few.
+   auto-fit:  collapse empty tracks, so few items stretch to fill the row.
+   min(100%, X) stops a column wider than the container from causing horizontal scroll on tiny screens. */
+.rg-page {
+  max-width: 1000px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+.rg-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+  align-items: center;
+}
+
+.rg-controls label {
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  gap: 4px;
+}
+
+.rg-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--mode), minmax(min(100%, var(--min)), 1fr));
+  gap: var(--gap);
+}
+
+.rg-card {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 16px;
+  min-height: 90px;
+  /* Animate transform only: composite-only, no layout or paint */
+  transition: transform 0.2s ease;
+}
+
+.rg-card:hover,
+.rg-card:focus-within {
+  transform: translateY(-4px);
+}
+
+.rg-card--wide {
+  grid-column: span 2;
+  background: #e0f2fe;
+}
+
+/* A span 2 item can't fit in a single column; fall back so it doesn't create an implicit column */
+@media (max-width: 480px) {
+  .rg-card--wide {
+    grid-column: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rg-card {
+    transition: none;
+  }
+}

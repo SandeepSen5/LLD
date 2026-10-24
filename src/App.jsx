@@ -8,6 +8,9 @@ import ProductList from "./pages/productList/productList";
 import StarRatingPage from "./pages/starRating/starRating";
 import RelativeTimePage from "./pages/relativeTime/relativeTime";
 import FaqPage from "./pages/faq/faq";
+import KycFormPage from "./pages/kycForm/kycForm";
+import FormRerendersPage from "./pages/formRerenders/formRerenders";
+import ResponsiveGridPage from "./pages/responsiveGrid/responsiveGrid";
 import AutoSuggestPage from "./pages/autoSuggest/autoSuggest";
 import Login from "./pages/Login/login";
 import PrivateRoute from "./components/PrivateRoute";
@@ -95,6 +98,33 @@ function App() {
           element={
             <PrivateRoute>
               <FaqPage />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/kyc-form"
+          element={
+            <PrivateRoute>
+              <KycFormPage />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/form-rerenders"
+          element={
+            <PrivateRoute>
+              <FormRerendersPage />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/responsive-grid"
+          element={
+            <PrivateRoute>
+              <ResponsiveGridPage />
             </PrivateRoute>
           }
         />
