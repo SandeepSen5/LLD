@@ -8,6 +8,7 @@ import ProductList from "./pages/productList/productList";
 import StarRatingPage from "./pages/starRating/starRating";
 import RelativeTimePage from "./pages/relativeTime/relativeTime";
 import FaqPage from "./pages/faq/faq";
+import AutoSuggestPage from "./pages/autoSuggest/autoSuggest";
 import Login from "./pages/Login/login";
 import PrivateRoute from "./components/PrivateRoute";
 
@@ -94,6 +95,15 @@ function App() {
           element={
             <PrivateRoute>
               <FaqPage />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/auto-suggest"
+          element={
+            <PrivateRoute>
+              <AutoSuggestPage />
             </PrivateRoute>
           }
         />
